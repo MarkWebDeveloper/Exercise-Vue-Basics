@@ -1,13 +1,17 @@
 <script setup>
 import { ref } from 'vue';
 
-let inputType = ref("password")
+const inputType = ref("password")
+
+const buttonText = ref("Show Password")
 
 const showPassword = () => {
     if (inputType.value == "password") {
         inputType.value = "text"
+        buttonText.value = "Hide Password"
     } else {
         inputType.value = "password"
+        buttonText.value = "Show Password"
     }
 }
 </script>
@@ -17,7 +21,7 @@ const showPassword = () => {
         <h1 class="my-3">Exercise Input Password</h1>
         <input :type="inputType" name="" id="password" class="form-control">
         <div class="d-block">
-            <span id="show-password" class="mt-2 btn btn-primary" @click="showPassword()">Show Password</span>
+            <span id="show-password" class="mt-2 btn btn-primary" @click="showPassword()">{{ buttonText }}</span>
         </div>
     </div>
 </template>
